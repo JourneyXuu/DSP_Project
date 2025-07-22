@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "f2806x_device.h": "c"
+        "f2806x_device.h": "c",
+        "dsp28x_project.h": "c",
+        "bsp_key.h": "c",
+        "menu.h": "c",
+        "oled.h": "c",
+        "iic.h": "c"
     }
 }

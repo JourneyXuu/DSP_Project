@@ -8,8 +8,17 @@
 #include "DSP28x_Project.h"
 #include "F2806x_MemCopy.h"
 #include "OLED.h"
+#include "bsp_key.h"
+#include "MENU.h"
 
 #define _FLASHOK 1
+
+/******private function*********/
+
+/******private parameter*********/
+Uint16 OLED_count = 0;
+
+
 
 void GPIO_Init();
 
@@ -31,21 +40,26 @@ void main()
     OLED_Init();
     OLED_Refresh();
     OLED_Clear();
-    OLED_ShowString(0,0,"Uab:",16,1);
-    OLED_ShowString(0,16,"Udc:",16,1);
-    OLED_ShowString(0,32,"Iab:",16,1);
+//    OLED_ShowString(0,0,"Uab:",16,1);
+//    OLED_ShowString(0,16,"Udc:",16,1);
+//    OLED_ShowString(0,32,"Iab:",16,1);
     OLED_Refresh();
     DELAY_US(1);
 
 
     while(1)
     {
-
-
+        g_Button = Key_Scan(); 
+        MENU_Item_KEY();
+        if(OLED_count > 60000)  {OLED_count = 1;}
+        else    {OLED_count++;}
+        if(OLED_count == 1)
+        {
+            OLED_Display(Menu_Item);
+            OLED_Refresh();
+        }
 
     }
-
-
 
 }
 
@@ -64,8 +78,8 @@ void GPIO_Init()
 
     //GPAMUX1:0-15 GPAMUX2:16-31 GPBMUX1:32-44 GPBMUX2:45-58
     EALLOW;
-    GpioDataRegs.GPADAT.all = 0ul;// GPIOA DATA����ȫ��0
-    GpioDataRegs.GPBDAT.all = 0ul;// GPIOB DATA����ȫ��0
+    GpioDataRegs.GPADAT.all = 0ul;// GPIOA DATA锟斤拷锟斤拷全锟斤拷0
+    GpioDataRegs.GPBDAT.all = 0ul;// GPIOB DATA锟斤拷锟斤拷全锟斤拷0
 
 
     GpioCtrlRegs.GPBMUX2.bit.GPIO51 =   0;//key start

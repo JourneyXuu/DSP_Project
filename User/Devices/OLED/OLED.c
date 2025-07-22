@@ -1,8 +1,8 @@
 
 #include "OLED.h"
 #include "oledfont.h"
-#include "stdio.h"
-#include "string.h"
+#include <stdio.h>
+#include <string.h>
 u8 OLED_GRAM[144][8];
 
 void OLED_ColorTurn(u8 i)
@@ -424,8 +424,8 @@ void OLED_Init(void)
 	OLED_WR_Byte(0x40,OLED_CMD);//--set start line address  Set Mapping RAM Display Start Line (0x00~0x3F)
 	OLED_WR_Byte(0x81,OLED_CMD);//--set contrast control register
 	OLED_WR_Byte(0xCF,OLED_CMD);// Set SEG Output Current Brightness
-	OLED_WR_Byte(0xA1,OLED_CMD);//--Set SEG/Column Mapping     0xa0瀹革箑褰搁崣宥囩枂 0xa1濮濓絽鐖�
-	OLED_WR_Byte(0xC8,OLED_CMD);//Set COM/Row Scan Direction   0xc0娑撳﹣绗呴崣宥囩枂 0xc8濮濓絽鐖�
+	OLED_WR_Byte(0xA1, OLED_CMD); // Set segment (SEG) mapping direction: 0xA1 = normal mapping, 0xA0 = reverse mapping
+	OLED_WR_Byte(0xC8, OLED_CMD); // Set COM/row scan direction: 0xC8 = top-to-bottom, 0xC0 = bottom-to-top
 	OLED_WR_Byte(0xA6,OLED_CMD);//--set normal display
 	OLED_WR_Byte(0xA8,OLED_CMD);//--set multiplex ratio(1 to 64)
 	OLED_WR_Byte(0x3f,OLED_CMD);//--1/64 duty

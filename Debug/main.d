@@ -37,6 +37,8 @@ main.obj: D:/A_Project/DSP_Project/workspace_v12/03_OLED_SoftwareI2C/libraries/i
 main.obj: D:/A_Project/DSP_Project/workspace_v12/03_OLED_SoftwareI2C/User/bsp/F2806x_MemCopy.h
 main.obj: D:/A_Project/DSP_Project/workspace_v12/03_OLED_SoftwareI2C/User/Devices/OLED/OLED.h
 main.obj: D:/A_Project/DSP_Project/workspace_v12/03_OLED_SoftwareI2C/User/Devices/IIC/IIC.h
+main.obj: D:/A_Project/DSP_Project/workspace_v12/03_OLED_SoftwareI2C/User/bsp/bsp_key.h
+main.obj: D:/A_Project/DSP_Project/workspace_v12/03_OLED_SoftwareI2C/User/Devices/OLED/MENU.h
 
 ../main.c:
 
@@ -111,4 +113,8 @@ D:/A_Project/DSP_Project/workspace_v12/03_OLED_SoftwareI2C/User/bsp/F2806x_MemCo
 D:/A_Project/DSP_Project/workspace_v12/03_OLED_SoftwareI2C/User/Devices/OLED/OLED.h:
 
 D:/A_Project/DSP_Project/workspace_v12/03_OLED_SoftwareI2C/User/Devices/IIC/IIC.h:
+
+D:/A_Project/DSP_Project/workspace_v12/03_OLED_SoftwareI2C/User/bsp/bsp_key.h:
+
+D:/A_Project/DSP_Project/workspace_v12/03_OLED_SoftwareI2C/User/Devices/OLED/MENU.h:
 
