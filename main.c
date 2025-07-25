@@ -15,10 +15,24 @@
 
 /******private function*********/
 
-/******private parameter*********/
-Uint16 OLED_count = 0;
+/******private parameter Begin*********/
+    Uint16 OLED_count = 0;  
+    Uint16 Buzzer_count = 0;
 
+    float Uab_set = 0;
+    float Ia_set = 0;
+    
+    float Uab_real = 0;
+    float Vdc_real = 0;
+    float Ia_real = 0;
+/******private parameter End*********/
 
+/************private flag Begin******** */
+    Uint8 RUN_Flag = 0;
+    Uint8 Stop_Flag = 1;
+    Uint8 Buzzer_Flag = 0;
+    Uint8 Mode = 0; //0: Grid-tied, 1: Off-grid
+/************private flag End******** */
 
 void GPIO_Init();
 
@@ -50,6 +64,21 @@ void main()
     while(1)
     {
         g_Button = Key_Scan(); 
+        if(g_Button)
+        {
+            Buzzer_Flag = 1;
+            GpioDataRegs.GPBSET.bit.GPIO52 = 1;
+        }
+        if(Buzzer_Flag == 1)
+        {
+            Buzzer_count++;
+            if(Buzzer_count > 1000) //1s
+            {
+                Buzzer_count = 0;
+                Buzzer_Flag = 0;
+                GpioDataRegs.GPBCLEAR.bit.GPIO52 = 1;
+            }
+        }
         MENU_Item_KEY();
         if(OLED_count > 60000)  {OLED_count = 1;}
         else    {OLED_count++;}

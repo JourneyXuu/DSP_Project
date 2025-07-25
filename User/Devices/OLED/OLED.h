@@ -32,6 +32,7 @@ void OLED_ShowChar6x8(u8 x,u8 y,u8 chr,u8 mode);
 void OLED_ShowString(u8 x,u8 y,u8 *chr,u8 size1,u8 mode);
 void OLED_ShowNum(u8 x,u8 y,u32 num,u8 len,u8 size1,u8 mode);
 
+void OLED_ShowFNum(u8 x,u8 y,float Fnum,u8 size1,u8 mode);
 void OLED_ShowFloat(u8 x, u8 y, float Fnum, u8 size1, u8 mode) ;
 void my_itoa(u8 num, char *buffer);
 u8 get_int_length(u8 num);
