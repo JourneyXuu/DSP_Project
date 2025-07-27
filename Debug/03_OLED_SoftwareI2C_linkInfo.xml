@@ -2,7 +2,7 @@
 <link_info>
    <banner>TMS320C2000 Linker PC v22.6.1.LTS</banner>
    <copyright>Copyright (c) 1996-2018 Texas Instruments Incorporated</copyright>
-   <link_time>0x688349cf</link_time>
+   <link_time>0x68837f9a</link_time>
    <link_errors>0x0</link_errors>
    <output_file>03_OLED_SoftwareI2C.out</output_file>
    <entry_point>

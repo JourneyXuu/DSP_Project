@@ -314,9 +314,14 @@ void OLED_ShowFNum(u8 x,u8 y,float Fnum,u8 size1,u8 mode)
 // 辅助函数：将整数转换为字符串
 void my_itoa(u8 num, char *buffer)
 {
-    buffer[0] = (num / 10) + '0';
-    buffer[1] = (num % 10) + '0';
-    buffer[2] = '\0';  // 字符串结束
+	if (num >= 10) {
+        buffer[0] = (num / 10) + '0';
+        buffer[1] = (num % 10) + '0';
+        buffer[2] = '\0';
+    } else {
+        buffer[0] = num + '0';
+        buffer[1] = '\0';
+    }
 }
 
 // 辅助函数：计算整数位数
